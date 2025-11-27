@@ -1,10 +1,10 @@
-1 Recomendador de Receitas Fitness
+🥗 Recomendador de Receitas Fitness
 n8n + Supabase + pgvector + OpenAI
 
 Este projeto implementa um sistema inteligente de recomendação de receitas fitness utilizando embeddings, banco vetorial e automação com n8n.
 A busca é semântica, permitindo ao usuário pedir receitas mesmo sem mencionar o nome exato.
 
-2 Funcionalidade
+📌 Funcionalidade
 
 O usuário envia mensagens como:
 
@@ -21,7 +21,7 @@ O sistema responde automaticamente com receitas relacionadas, usando:
 ✔ Workflow automatizado no n8n
 ✔ LLM para formatação da resposta
 
-3 Tecnologias Utilizadas
+🛠️ Tecnologias Utilizadas
 
 Supabase (PostgreSQL + pgvector)
 
@@ -33,7 +33,7 @@ n8n Workflow Automation
 
 SQL
 
-4  Estrutura do Banco de Dados
+🧬 Estrutura do Banco de Dados
 CREATE TABLE receitas (
     id SERIAL PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
@@ -50,18 +50,22 @@ CREATE TABLE receitas (
 
 A tabela foi populada com 10 receitas, incluindo Panqueca de Banana, Frango Fitness, Omelete, Salada Caesar, entre outras.
 
-5 Arquitetura da Solução
+⚙️ Arquitetura da Solução
 
 Fluxo completo:
 
 Mensagem do usuário → Embedding → Busca Vetorial → Receita Similar → GPT formata → Resposta final
 
-6 Prints do Workflow (n8n)
+🖥️ Prints do Workflow (n8n)
+<img width="1273" height="596" alt="Screenshot 2025-11-27 145833" src="https://github.com/user-attachments/assets/514b2841-483b-4515-b95e-82a556a24e60" />
+<img width="1365" height="719" alt="Screenshot 2025-11-27 154039" src="https://github.com/user-attachments/assets/176135fb-5b36-4f54-a484-444b3778be4c" />
+<img width="1362" height="624" alt="Screenshot 2025-11-27 151331" src="https://github.com/user-attachments/assets/3d863ab7-39fb-4f27-be4e-7911dcac35ca" />
+<img width="1349" height="477" alt="Screenshot 2025-11-27 151208" src="https://github.com/user-attachments/assets/577cce12-67ce-491c-98ea-5c37d68a0d74" />
 
 
 
 
-7 Como Executar
+▶️ Como Executar
 
 Criar banco Supabase
 
@@ -77,7 +81,7 @@ Configurar chaves da OpenAI e Supabase
 
 Enviar mensagens para o chatbot
 
-8 Resultado
+📈 Resultado
 
 Recomendação automática de receitas
 
@@ -87,13 +91,13 @@ Respostas rápidas, completas e bem formatadas
 
 Totalmente automatizado via n8n
 
-9 Vídeo da Demonstração
+🎥 Vídeo da Demonstração
 
 📌 Adicionar aqui quando gravar:
-[LINK DO VÍDEO]
+[https://youtu.be/UpdEkpfWcEk]
 
 👨‍💻 Autor
 
-Nome:Marcos Andre dos Santos Soares
+Marcos Andre dos Santos Soares
 Disciplina: Projeto de Banco de Dados
 Professor: Anderson Soares
