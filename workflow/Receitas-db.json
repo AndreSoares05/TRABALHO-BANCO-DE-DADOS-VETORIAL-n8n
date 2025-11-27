@@ -1,0 +1,151 @@
+{
+  "name": "Receitas-db",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        416,
+        240
+      ],
+      "id": "78d01e17-9026-49fa-b354-8fb81a3c0359",
+      "name": "When chat message received",
+      "webhookId": "40c1d364-081d-4b3f-b0a9-548205ec42c5"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Voce é meu assistente de banco de dados para retornar todos os registros de banco de dados"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        704,
+        240
+      ],
+      "id": "ee2ab652-d3a3-4bad-bd35-b85d1c04c9b8",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        768,
+        464
+      ],
+      "id": "8fedd64a-3636-4de3-9723-644ca48e7c77",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        640,
+        464
+      ],
+      "id": "7ba91947-9dd7-4a8b-b30a-74a493aebc74",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "gz5qU6oY8cDBB9Qk",
+          "name": "OpenAi account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "receitas",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        864,
+        448
+      ],
+      "id": "3896c606-6bbb-4867-b4ca-3725a4f891d8",
+      "name": "Get many rows in Supabase",
+      "credentials": {
+        "supabaseApi": {
+          "id": "fSZcJP7IVih6P0ZE",
+          "name": "Supabase account 4"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows in Supabase": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e6aebe9f-27e1-4dc2-9bb1-b37855461282",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c1b9f4e99461fe013c97939e453348661c9702e0caa022044796a361847c1338"
+  },
+  "id": "6I2gpVijlSTsNU46",
+  "tags": []
+}
