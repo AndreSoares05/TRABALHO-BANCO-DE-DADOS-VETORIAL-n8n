@@ -1,0 +1,45 @@
+CREATE TABLE receitas (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(150) NOT NULL,
+    descricao TEXT,
+    ingredientes TEXT NOT NULL,
+    modo_preparo TEXT NOT NULL,
+    tempo_preparo INT,             
+    rendimento VARCHAR(50),        
+    categoria VARCHAR(50),       
+    dificuldade VARCHAR(20),       
+    criado_em TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO receitas 
+(titulo, descricao, ingredientes, modo_preparo, tempo_preparo, rendimento, categoria, dificuldade) 
+VALUES
+('Frango Grelhado Fitness', 'Frango leve e rápido para o dia a dia.',
+ '200g de peito de frango; sal; pimenta; azeite',
+ 'Tempere o frango e grelhe por 6 minutos de cada lado.', 
+ 15, '2 porções', 'fitness', 'fácil'),
+
+('Panqueca de Banana', 'Receita saudável com poucos ingredientes.',
+ '1 banana; 1 ovo; 2 colheres de aveia; canela',
+ 'Amasse a banana, misture os ingredientes e frite em fogo baixo.',
+ 10, '1 porção', 'fitness', 'fácil'),
+
+('Macarrão à Bolonhesa', 'Clássico italiano simples e saboroso.',
+ 'Macarrão; carne moída; molho de tomate; cebola; alho; sal',
+ 'Refogue a carne, adicione molho e misture ao macarrão cozido.',
+ 30, '4 porções', 'massa', 'médio'),
+
+('Bolo de Chocolate', 'Bolo fofinho e úmido.',
+ 'Farinha; açúcar; chocolate; ovos; leite; fermento',
+ 'Misture tudo, coloque em forma e asse por 40 minutos.',
+ 50, '8 porções', 'sobremesa', 'médio'),
+
+('Salada Caesar', 'Salada leve com molho cremoso.',
+ 'Alface; frango; croutons; molho caesar',
+ 'Monte a salada e finalize com o molho.',
+ 12, '2 porções', 'salada', 'fácil'),
+
+('Arroz de Forno', 'Receita prática para aproveitar sobras.',
+ 'Arroz cozido; presunto; queijo; creme de leite',
+ 'Misture tudo e leve ao forno por 20 minutos.',
+ 25, '5 porções', 'assados', 'fácil');
